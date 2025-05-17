@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AffiliationPartiPolitique{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+    {{ include('affiliation_parti_politique/_form.html.twig') }}
+
+    <a href="{{ path('app_affiliation_parti_politique_index') }}">back to list</a>
+{% endblock %}

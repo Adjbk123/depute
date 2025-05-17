@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AffiliationPartiPolitique{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ affiliation_parti_politique.id }}</td>
+            </tr>
+            <tr>
+                <th>DateAffiliation</th>
+                <td>{{ affiliation_parti_politique.dateAffiliation ? affiliation_parti_politique.dateAffiliation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFinAffiliation</th>
+                <td>{{ affiliation_parti_politique.dateFinAffiliation ? affiliation_parti_politique.dateFinAffiliation|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_affiliation_parti_politique_index') }}">back to list</a>
+
+    <a href="{{ path('app_affiliation_parti_politique_edit', {'id': affiliation_parti_politique.id}) }}">edit</a>
+
+    {{ include('affiliation_parti_politique/_delete_form.html.twig') }}
+{% endblock %}

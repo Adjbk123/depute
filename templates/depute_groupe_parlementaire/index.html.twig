@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DeputeGroupeParlementaire index{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DebutMandat</th>
+                <th>FinMandat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for depute_groupe_parlementaire in depute_groupe_parlementaires %}
+            <tr>
+                <td>{{ depute_groupe_parlementaire.id }}</td>
+                <td>{{ depute_groupe_parlementaire.debutMandat ? depute_groupe_parlementaire.debutMandat|date('Y-m-d') : '' }}</td>
+                <td>{{ depute_groupe_parlementaire.finMandat ? depute_groupe_parlementaire.finMandat|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_depute_groupe_parlementaire_show', {'id': depute_groupe_parlementaire.id}) }}">show</a>
+                    <a href="{{ path('app_depute_groupe_parlementaire_edit', {'id': depute_groupe_parlementaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_depute_groupe_parlementaire_new') }}">Create new</a>
+{% endblock %}

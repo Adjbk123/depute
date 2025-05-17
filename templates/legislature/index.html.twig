@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des législatures{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_legislature_new') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_legislature_index') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table datatable-init-export">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libellé</th>
+                <th>Date Debut</th>
+                <th>Date Fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for legislature in legislatures %}
+            <tr>
+                <td>{{ legislature.id }}</td>
+                <td>{{ legislature.libelle }}</td>
+                <td>{{ legislature.dateDebut ? legislature.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ legislature.dateFin ? legislature.dateFin|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_legislature_show', {'id': legislature.id}) }}" class="btn btn-secondary btn-sm rounded-pill me-2"><i class="fa fa-eye"></i></a>
+                    <a href="{{ path('app_legislature_edit', {'id': legislature.id}) }}" class="btn btn-primary btn-sm rounded-pill"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

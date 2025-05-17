@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Biographie index{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Contenu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for biographie in biographies %}
+            <tr>
+                <td>{{ biographie.id }}</td>
+                <td>{{ biographie.contenu }}</td>
+                <td>
+                    <a href="{{ path('app_biographie_show', {'id': biographie.id}) }}">show</a>
+                    <a href="{{ path('app_biographie_edit', {'id': biographie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_biographie_new') }}">Create new</a>
+{% endblock %}

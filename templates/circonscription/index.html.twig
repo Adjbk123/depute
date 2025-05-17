@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circonscription index{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Libelle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for circonscription in circonscriptions %}
+            <tr>
+                <td>{{ circonscription.id }}</td>
+                <td>{{ circonscription.libelle }}</td>
+                <td>
+                    <a class="btn btn-secondary btn-sm rounded-pill me-2" href="{{ path('app_circonscription_show', {'id': circonscription.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-primary btn-sm rounded-pill"  href="{{ path('app_circonscription_edit', {'id': circonscription.id}) }}"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_circonscription_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des partis politiques{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_parti_politique_new') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_parti_politique_new') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table datatable-init-export">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Fondation</th>
+                <th>Historique</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for parti_politique in parti_politiques %}
+            <tr>
+                <td>{{ parti_politique.id }}</td>
+                <td>
+                    <img src="{{ asset('uploads/') }}{{ parti_politique.photo }}" alt="" class="rounded-circle" style="width: 40px">{{ parti_politique.nom }} - <b>{{ parti_politique.sigle }}</b> </td>
+           
+                <td>{{ parti_politique.fondation|date('d-m-Y ') }}</td>
+                <td>{{ parti_politique.historique|slice(0,70) }}...</td>
+                <td>
+                    <a  class="btn btn-secondary btn-sm rounded-pill" href="{{ path('app_parti_politique_show', {'id': parti_politique.id}) }}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-primary btn-sm rounded-pill" href="{{ path('app_parti_politique_edit', {'id': parti_politique.id}) }}"><i class="fa fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

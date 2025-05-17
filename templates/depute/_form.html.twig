@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-6">
+        {{ form_row(form.nom) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(form.prenoms) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        {{ form_row(form.dateNaissance) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(form.lieuNaissance) }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        {{ form_row(form.profession) }}
+    </div>
+    <div class="col-md-6">
+        {{ form_row(form.circonscription) }}
+    </div>
+</div>
+
+
+
+    <button class="btn btn-primary">{{ button_label|default('Ajouter le député') }}</button>
+{{ form_end(form) }}

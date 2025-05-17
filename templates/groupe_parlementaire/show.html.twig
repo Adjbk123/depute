@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GroupeParlementaire{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ groupe_parlementaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ groupe_parlementaire.libelle }}</td>
+            </tr>
+            <tr>
+                <th>ChefGroupe</th>
+                <td>{{ groupe_parlementaire.chefGroupe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_groupe_parlementaire_index') }}">back to list</a>
+
+    <a class="btn btn-primary " href="{{ path('app_groupe_parlementaire_edit', {'id': groupe_parlementaire.id}) }}">edit</a>
+
+    {{ include('groupe_parlementaire/_delete_form.html.twig') }}
+{% endblock %}

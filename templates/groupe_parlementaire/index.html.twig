@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GroupeParlementaire index{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>ChefGroupe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupe_parlementaire in groupe_parlementaires %}
+            <tr>
+                <td>{{ groupe_parlementaire.id }}</td>
+                <td>{{ groupe_parlementaire.libelle }}</td>
+                <td>{{ groupe_parlementaire.chefGroupe }}</td>
+                <td>
+                    <a href="{{ path('app_groupe_parlementaire_show', {'id': groupe_parlementaire.id}) }}">show</a>
+                    <a href="{{ path('app_groupe_parlementaire_edit', {'id': groupe_parlementaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_groupe_parlementaire_new') }}">Create new</a>
+{% endblock %}

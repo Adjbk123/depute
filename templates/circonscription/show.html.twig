@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Circonscription{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ circonscription.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ circonscription.libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_circonscription_index') }}">back to list</a>
+
+    <a href="{{ path('app_circonscription_edit', {'id': circonscription.id}) }}">edit</a>
+
+    {{ include('circonscription/_delete_form.html.twig') }}
+{% endblock %}

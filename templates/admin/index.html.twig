@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+
+{% block body %}
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-users"></i> Nombre total de députés</h5>
+                    <p class="card-text">{{ nbDeputes }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-landmark"></i> Nombre total de législatures</h5>
+                    <p class="card-text">{{ nbLegislatures }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-briefcase"></i> Nombre de mandats en cours</h5>
+                    <p class="card-text">{{ nbMandatsEnCours }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-chart-bar"></i> Nombre de députés par législature</h5>
+                    <ul class="list-group">
+                        {% for libelle, nbDeputes in deputesParLegislature %}
+                            <li class="list-group-item">{{ libelle }} : {{ nbDeputes }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-users"></i> Nombre de députés par groupe parlementaire</h5>
+                    <ul class="list-group">
+                        {% for nom, nbDeputes in deputesParGroupeParlementaire %}
+                            <li class="list-group-item">{{ nom }} : {{ nbDeputes }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-male"></i><i class="fas fa-female"></i> Répartition par genre des députés</h5>
+                    <p class="card-text">Hommes : {{ nbDeputesHommes }}</p>
+                    <p class="card-text">Femmes : {{ nbDeputesFemmes }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'baseLanding.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block header %}
+    <div class="row flex-lg-row-reverse align-items-center justify-content-between g-gs">
+        <div class="col-lg-6 mb-n3 mb-lg-0">
+            <div class="header-image header-image-s2">
+                <img src="{{ asset('landing/images/header/gfx-b.png') }}" alt="">
+            </div><!-- .header-image -->
+        </div><!-- .col- -->
+        <div class="col-lg-5 col-md-10">
+            <div class="header-caption">
+                <h1 class="header-title">Bienvenue sur le site officiel de ParlInfo Bénin</h1>
+                <div class="header-text">
+                    <p>Engagé pour le développement et le bien-être de notre communauté.</p>
+                </div>
+                <ul class="header-action btns-inline">
+                    <li><a href="#missions" class="btn btn-primary btn-lg"><span>Découvrir Nos Missions</span></a></li>
+                    <li><a href="#contact" class="link link-block link-gray"><em class="icon icon-lg ni ni-mail"></em><span>Contactez-nous</span></a></li>
+                </ul>
+            </div><!-- .header-caption -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row justify-content-center text-center">
+        <div class="col-sm-7 col-md-10 col-9">
+            <div class="section-head">
+                <h2 class="title">Liste des mandats par groupe parlementaire pour la législature en cours</h2>
+            </div><!-- .section-head -->
+        </div><!-- .col -->
+    </div><!-- .row -->
+
+        {% for groupeParlementaire, mandats in mandatsParGroupes %}
+
+            <div  class="mb-5">
+
+
+            <h4></h4>
+                <div class="row justify-content-center text-center">
+                    <div class="col-sm-7 col-md-12 col-9">
+                        <div class="section-head">
+                            <h3 class="title bg-primary text-white p-3 rounded-3">{{ groupeParlementaire }}</h3>
+                        </div><!-- .section-head -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+
+            <table class="table myTable table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Député</th>
+                    <th>Circonscription </th>
+                    <th>Date de naissance</th>
+                    <th>Lieu de naissance</th>
+                    <th>Parti Politique</th>
+                 </tr>
+                </thead>
+                <tbody>
+                {% for mandat in mandats %}
+                    <tr>
+                        <td>{{ mandat.depute.prenoms }} {{ mandat.depute.nom }}</td>
+                        <td>{{ mandat.depute.circonscription.libelle }} </td>
+                        <td>{{ mandat.depute.dateNaissance}} </td>
+                        <td>{{ mandat.depute.lieuNaissance}} </td>
+                        <td>{{ mandat.partiPolitique.nom }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">Aucun enregistrement trouvé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        {% endfor %}
+
+
+
+{% endblock %}

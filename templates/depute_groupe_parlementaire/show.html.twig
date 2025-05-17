@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DeputeGroupeParlementaire{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ depute_groupe_parlementaire.id }}</td>
+            </tr>
+            <tr>
+                <th>DebutMandat</th>
+                <td>{{ depute_groupe_parlementaire.debutMandat ? depute_groupe_parlementaire.debutMandat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>FinMandat</th>
+                <td>{{ depute_groupe_parlementaire.finMandat ? depute_groupe_parlementaire.finMandat|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_depute_groupe_parlementaire_index') }}">back to list</a>
+
+    <a href="{{ path('app_depute_groupe_parlementaire_edit', {'id': depute_groupe_parlementaire.id}) }}">edit</a>
+
+    {{ include('depute_groupe_parlementaire/_delete_form.html.twig') }}
+{% endblock %}

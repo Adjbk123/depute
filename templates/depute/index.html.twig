@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des députés{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_depute_new') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_depute_new') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+
+
+{% block body %}
+
+
+    <table class="table datatable-init-export">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Prénoms</th>
+                <th>Date Naissance</th>
+                <th>Lieu Naissance</th>
+                <th>Profession</th>
+                <th>Biographie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for depute in deputes %}
+            <tr>
+                <td>{{ depute.id }}</td>
+                <td>{{ depute.nom }}</td>
+                <td>{{ depute.prenoms }}</td>
+                <td>{{ depute.dateNaissance ? depute.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ depute.lieuNaissance }}</td>
+                <td>{{ depute.profession }}</td>
+                <td>{{ depute.biographie }}</td>
+                <td>
+                    <a class="btn btn-secondary btn-sm rounded-pill me-2" href="{{ path('app_depute_show', {'id': depute.id}) }}"><i class="fa fa-eye"></i></a>
+
+                    <a class="btn btn-primary btn-sm rounded-pill"  href="{{ path('app_depute_edit', {'id': depute.id}) }}"><i class="fa fa-edit"></i></a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

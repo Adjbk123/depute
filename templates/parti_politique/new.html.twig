@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un parti politique{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_parti_politique_index') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-arrow-left"></em>
+        <span>Retour</span>
+    </a>
+    <a href="{{ path('app_parti_politique_index') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-arrow-left"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+    {{ include('parti_politique/_form.html.twig') }}
+
+{% endblock %}

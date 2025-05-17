@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une législature{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_legislature_index') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-arrow-left"></em>
+        <span>Retour</span>
+    </a>
+    <a href="{{ path('app_legislature_index') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-arrow-left"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+    {{ include('legislature/_form.html.twig') }}
+
+
+{% endblock %}

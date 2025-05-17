@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeMandat index{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+    <h1>TypeMandat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_mandat in type_mandats %}
+            <tr>
+                <td>{{ type_mandat.id }}</td>
+                <td>{{ type_mandat.libelle }}</td>
+                <td>
+                    <a href="{{ path('app_type_mandat_show', {'id': type_mandat.id}) }}">show</a>
+                    <a href="{{ path('app_type_mandat_edit', {'id': type_mandat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_type_mandat_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="{{ asset('landing/images/favicon.png') }}">
+    <!-- Page Title  -->
+    <title>{% block title %} {% endblock %} | ParlInfo Bénin</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="{{ asset('landing/assets/css/dashlite.css') }}?ver=3.2.3">
+    <link id="skin-default" rel="stylesheet" href="{{ asset('landing/assets/css/theme.css') }}?ver=3.2.3">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/libs/fontawesome-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('landing/datatables/datatables.min.css') }}">
+
+    <style>
+
+
+    </style>
+</head>
+
+<body class="nk-body bg-white npc-landing ">
+<div class="nk-app-root">
+    <!-- main @s -->
+    <div class="nk-main ">
+        <header class="header  bg-lighter" id="home">
+            {{ include('partials/landing/header.html.twig') }}
+            <div class="header-content ">
+                <div class="container">
+                    {% block header %}
+
+                    {% endblock %}
+
+                </div><!-- .container -->
+            </div><!-- .header-content -->
+
+        </header><!-- .header -->
+
+
+
+
+        <section class="section section-service pb-4 " id="service">
+            <div class="container">
+
+                <div class="section-content">
+
+                    {% block body %}
+
+                    {% endblock %}
+
+
+                </div>
+            </div><!-- .container -->
+        </section><!-- .section -->
+
+
+        <footer class="footer bg-lighter" id="footer">
+            <div class="container">
+                <div class="row g-3 align-items-center justify-content-md-between py-4 py-md-5">
+                    <div class="col-md-3">
+                        <div class="footer-logo">
+                            <a href="{{ path('app_accueil') }}" class="logo-link">
+                                <img class="logo-light logo-img" src="{{ asset('images/logoParlbenin.png') }}" srcset="./images/logo2x.png 2x" alt="logo">
+                                <img class="logo-dark logo-img" src="{{ asset('images/logoParlbenin.png') }}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                            </a>
+                        </div><!-- .footer-logo -->
+                    </div><!-- .col -->
+
+                </div>
+                <hr class="hr border-light mb-0 mt-n1">
+                <div class="row g-3 align-items-center justify-content-md-between py-4">
+                    <div class="col-md-8">
+                        <div class="text-base">Copyright &copy; 2024.</div>
+                    </div><!-- .col -->
+                    <div class="col-md-4 d-flex justify-content-md-end">
+                        <ul class="social">
+                            <li><a href="#"><em class="icon ni ni-twitter"></em></a></li>
+                            <li><a href="#"><em class="icon ni ni-facebook-f"></em></a></li>
+                            <li><a href="#"><em class="icon ni ni-instagram"></em></a></li>
+                            <li><a href="#"><em class="icon ni ni-pinterest"></em></a></li>
+                        </ul><!-- .footer-icon -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </footer><!-- .footer -->
+    </div>
+    <!-- main @e -->
+</div>
+<!-- app-root @e -->
+<!-- JavaScript -->
+<script src="{{ asset('landing/assets/js/bundle.js') }}?ver=3.2.3"></script>
+<script src="{{ asset('landing/assets/js/scripts.js') }}?ver=3.2.3"></script>
+
+<script src="{{ asset('landing/datatables/datatables.min.js') }}"></script>
+
+<script>
+    let table = new  DataTable(".myTable");
+</script>
+</body>
+
+</html>

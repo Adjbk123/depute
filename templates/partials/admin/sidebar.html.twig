@@ -1,0 +1,174 @@
+<div class="nk-sidebar is-light nk-sidebar-fixed is-light " data-content="sidebarMenu">
+    <div class="nk-sidebar-element nk-sidebar-head">
+        <div class="nk-sidebar-brand">
+            <a href="{{ path('app_admin') }}" class="logo-link nk-sidebar-logo">
+                <img class="logo-light logo-img" src="{{ asset('images/logoParlbenin.png') }}" srcset="{{ asset('images/logo2x.png') }} 2x" alt="logo">
+                <img class="logo-dark logo-img" src="{{ asset('images/logoParlbenin.png') }}" srcset="{{ asset('images/logo-dark2x.png') }} 2x" alt="logo-dark">
+                <img class="logo-small logo-img logo-img-small" src="{{ asset('images/logo-small.png') }}" srcset="{{ asset('images/logo-small2x.png') }} 2x" alt="logo-small">
+            </a>
+        </div>
+        <div class="nk-menu-trigger me-n2">
+            <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+        </div>
+    </div><!-- .nk-sidebar-element -->
+    <div class="nk-sidebar-element">
+        <div class="nk-sidebar-content">
+            <div class="nk-sidebar-menu" data-simplebar>
+                <ul class="nk-menu">
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Main</h6>
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item">
+                        <a href="{{ path('app_admin') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
+                            <span class="nk-menu-text">Tableau de bord</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
+
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Paramètres</h6>
+                    </li><!-- .nk-menu-heading -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
+                            <span class="nk-menu-text">Députés</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_depute_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter un Député</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_depute_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Députés</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-briefcase"></em></span>
+                            <span class="nk-menu-text">Mandat</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_mandat_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter un Mandat</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_mandat_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Mandats</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_type_mandat_index') }}" class="nk-menu-link"><span class="nk-menu-text">Types de Mandat</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon fa fa-user-shield"></em></span>
+                            <span class="nk-menu-text">Groupe parlementaire</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_groupe_parlementaire_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter un Groupe</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_groupe_parlementaire_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Groupes</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-user-check"></em></span>
+                            <span class="nk-menu-text">Suppléant</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_suppleant_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter un Suppléant</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_suppleant_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Suppléants</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-grid-alt"></em></span>
+                            <span class="nk-menu-text">Législature</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_legislature_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter une Législature</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_legislature_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Législatures</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-building"></em></span>
+                            <span class="nk-menu-text">Parti politique</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_parti_politique_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter un Parti</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_parti_politique_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Partis</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-link"></em></span>
+                            <span class="nk-menu-text">Affiliation Partis politique</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_affiliation_parti_politique_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter une Affiliation</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_affiliation_parti_politique_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Affiliations</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-map-pin"></em></span>
+                            <span class="nk-menu-text">Circonscription électorale</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_circonscription_new') }}" class="nk-menu-link"><span class="nk-menu-text">Ajouter une Circonscription</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_circonscription_index') }}" class="nk-menu-link"><span class="nk-menu-text">Liste des Circonscriptions</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Administration</h6>
+                    </li><!-- .nk-menu-heading -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="#" class="nk-menu-link nk-menu-toggle">
+                            <span class="nk-menu-icon"><em class="icon ni ni-user-group"></em></span>
+                            <span class="nk-menu-text">Utilisateurs</span>
+                        </a>
+                        <ul class="nk-menu-sub">
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_register') }}" class="nk-menu-link" target="_blank"><span class="nk-menu-text">Ajouter un Utilisateur</span></a>
+                            </li>
+                            <li class="nk-menu-item">
+                                <a href="{{ path('app_user_index') }}" class="nk-menu-link" target="_blank"><span class="nk-menu-text">Liste des Utilisateurs</span></a>
+                            </li>
+                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item">
+                        <a href="{{ path('app_logout') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-signout"></em></span>
+                            <span class="nk-menu-text">Déconnexion</span>
+                        </a>
+                    </li>
+                </ul><!-- .nk-menu -->
+            </div><!-- .nk-sidebar-menu -->
+        </div><!-- .nk-sidebar-content -->
+    </div><!-- .nk-sidebar-element -->
+</div>

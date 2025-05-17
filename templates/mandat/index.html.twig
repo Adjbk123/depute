@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes des mandats{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_mandat_new') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_mandat_new') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+
+    <table class="table datatable-init-export">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Député</th>
+                <th>Parti Politique</th>
+                <th>Groupe parlementaire</th>
+                <th>Début Mandat</th>
+                <th>Fin Mandat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mandat in mandats %}
+            <tr>
+                <td>{{ mandat.id }}</td>
+                <td>{{ mandat.depute.prenoms }} {{ mandat.depute.nom }}</td>
+                <td>{{ mandat.partiPolitique.nom }}</td>
+                <td>{{ mandat.groupeParlementaire.libelle }} </td>
+
+                <td>{{ mandat.debutMandat ? mandat.debutMandat|date('Y-m-d') : '' }}</td>
+                <td>{{ mandat.finMandat ? mandat.finMandat|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a class="btn btn-secondary btn-sm rounded-pill me-2" href="{{ path('app_mandat_show', {'id': mandat.id}) }}"><i class="fa fa-eye"></i></a>
+
+                    <a class="btn btn-primary btn-sm rounded-pill"  href="{{ path('app_mandat_edit', {'id': mandat.id}) }}"><i class="fa fa-edit"></i></a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

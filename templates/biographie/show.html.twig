@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Biographie{% endblock %}
+{% block breadcrumb %}{% endblock %}
+
+
+{% block bouton %}
+    <a href="{{ path('app_register') }}" class="btn btn-primary d-none d-sm-inline-flex">
+        <em class="icon ni ni-plus"></em>
+        <span>Nouvel ajout</span>
+    </a>
+    <a href="{{ path('app_register') }}"  class="btn btn-icon btn-primary d-inline-flex d-sm-none">
+        <em class="icon ni ni-plus"></em>
+    </a>
+{% endblock %}
+{% block body %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ biographie.id }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ biographie.contenu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_biographie_index') }}">back to list</a>
+
+    <a href="{{ path('app_biographie_edit', {'id': biographie.id}) }}">edit</a>
+
+    {{ include('biographie/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,37 @@
+<div class="header-main header-main-s1 is-sticky is-transparent">
+    <div class="container header-container">
+        <div class="header-wrap">
+            <div class="header-logo">
+                <a href="{{ path('app_accueil') }}" class="logo-link">
+                    <img class="logo-light logo-img" src="{{ asset('images/logoParlbenin.png') }}" alt="logo">
+                    <img class="logo-dark logo-img" src="{{ asset('images/logoParlbenin.png') }}" alt="logo-dark">
+                </a>
+            </div>
+            <div class="header-toggle">
+                <button class="menu-toggler" data-target="mainNav">
+                    <em class="menu-on icon ni ni-menu"></em>
+                    <em class="menu-off icon ni ni-cross"></em>
+                </button>
+            </div><!-- .header-nav-toggle -->
+            <nav class="header-menu" data-content="mainNav">
+                <ul class="menu-list ms-lg-auto">
+                    <li class="menu-item"><a href="{{ path('app_accueil') }}" class="menu-link nav-link">Accueil</a></li>
+                    <li class="menu-item  has-sub">
+                        <a href="#" class="menu-link nav-link menu-toggle" data-bs-toggle="dropdown">Législatures</a>
+                        <ul class="dropdown-menu" aria-labelledby="legislaturesDropdown">
+                            {% for legislature in legislatures %}
+                                <li><a class="dropdown-item" href="{{ path('app_legislature_depute', {'id': legislature.id}) }}">{{ legislature.libelle }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    <li class="menu-item"><a href="#contact" class="menu-link nav-link">Contact</a></li>
+
+                </ul>
+                <ul class="menu-btns">
+                    <li>
+                        <a href="{{ path('app_admin') }}" target="_blank" class="btn btn-primary btn-lg">Portail</a>
+                    </li>
+                </ul>
+            </nav><!-- .nk-nav-menu -->
+        </div><!-- .header-warp-->
+    </div><!-- .container-->
+</div><!-- .header-main-->
